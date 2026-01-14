@@ -1,7 +1,7 @@
 name: Deploy Only
 on:
   workflow_call:
-    input:
+    inputs:
       artifact-name:
         description: "Name of the artifact to deploy"
         required: true
