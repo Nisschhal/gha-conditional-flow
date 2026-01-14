@@ -69,7 +69,6 @@ jobs:
   deploy:
     needs: build
     uses: ./.github/workflows/deploy-only.yml
-    with:
   report:
     env:
       GITHUB_CONTEXT: ${{ toJSON(github) }}
