@@ -80,6 +80,8 @@ jobs:
         run: echo "Deploying..."
 
   report:
+    env:
+      GITHUB_CONTEXT: ${{ toJSON(github) }}
     needs: [lint, test, build, deploy]
     runs-on: ubuntu-latest
     if: failure()
@@ -87,4 +89,4 @@ jobs:
       - name: Generate report
         run: |
           echo "Generating report for all jobs..."
-          echo "${{ toJSON(github) }}"
+          echo "$GITHUB_CONTEXT"
