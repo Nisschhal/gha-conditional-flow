@@ -27,4 +27,4 @@ jobs:
       - name: Deploy application
         # Using dot notation (spelling fixed to "input")
         run: |
-          echo "Deploying application...with some other input: ${{ inputs.some-other-input and secrets: ${{ secrets.DEPLOYMENT_TOKEN }} }}"
+          echo "Deploying application...with some other input: ${{ inputs.some-other-input }} and secrets: ${{ secrets.DEPLOYMENT_TOKEN }} "

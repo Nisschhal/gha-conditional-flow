@@ -72,6 +72,8 @@ jobs:
     with:
       artifact-name: dist-files
       some-other-input: some-value
+    secrets:
+      DEPLOYMENT_TOKEN: abce12345
   report:
     env:
       GITHUB_CONTEXT: ${{ toJSON(github) }}
