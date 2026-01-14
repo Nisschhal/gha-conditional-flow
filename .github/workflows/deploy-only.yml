@@ -1,5 +1,12 @@
 name: Deploy Only
-on: workflow_call
+on:
+  workflow_call:
+    input:
+      artifact-name:
+        description: "Name of the artifact to deploy"
+        required: true
+        default: dist
+        type: string
 jobs:
   deploy:
     runs-on: ubuntu-latest
