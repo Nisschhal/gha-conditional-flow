@@ -11,6 +11,7 @@ on:
         description: "Some other input for deployment"
         required: false
         type: string
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,6 +19,9 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: ${{ inputs['artifact-name'] }}
+          # Using dot notation
+          name: ${{ inputs.artifact-name }}
+
       - name: Deploy application
-        run: echo "Deploying application...with some other input:  ${{ inputs.some-other-input }}"
+        # Using dot notation (spelling fixed to "input")
+        run: echo "Deploying application...with some other input: ${{ inputs.some-other-input }}"
