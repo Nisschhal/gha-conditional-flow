@@ -14,16 +14,26 @@ on:
     secrets:
       DEPLOYMENT_TOKEN:
         required: true
+    outputs:
+      result:
+        description: "Result of the deployment"
+        value: ${{ jobs.deploy.outputs.step-result }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    outputs:
+      step-result: ${{ steps.step-result.outputs.step-result }}
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           # Using dot notation
           name: ${{ inputs.artifact-name }}
-
+      - name: List files
+        run: ls -la
+      - name: Set deployment result
+        id: step-result
+        run: echo "step-result=Deployment Successful" >> $GITHUB_OUTPUT
       - name: Deploy application
         # Using dot notation (spelling fixed to "input")
         run: |

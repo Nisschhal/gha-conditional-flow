@@ -83,4 +83,5 @@ jobs:
       - name: Generate report
         run: |
           echo "Generating report for all jobs..."
-          echo "$GITHUB_CONTEXT"
+          echo "Github Output: $GITHUB_OUTPUT"
+          echo "Deploy output: ${{ needs.deploy.outputs.result }}"
