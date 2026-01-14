@@ -71,6 +71,7 @@ jobs:
     uses: ./.github/workflows/deploy-only.yml
     with:
       artifact-name: dist-files
+      some-other-input: some-value
   report:
     env:
       GITHUB_CONTEXT: ${{ toJSON(github) }}

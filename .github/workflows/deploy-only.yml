@@ -7,6 +7,10 @@ on:
         required: true
         default: dist
         type: string
+      some-other-input:
+        description: "Some other input for deployment"
+        required: false
+        type: string
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,4 +20,4 @@ jobs:
         with:
           name: ${{ inputs['artifact-name'] }}
       - name: Deploy application
-        run: echo "Deploying application..."
+        run: echo "Deploying application...with some other input:  ${{ inputs.some-other-input }}"
