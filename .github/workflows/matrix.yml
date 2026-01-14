@@ -8,12 +8,12 @@ jobs:
       matrix:
         node-version: [12, 16, 18]
         operating-system: [ubuntu-latest, windows-latest]
-      include:
-        - os: macOS-latest
-          node-version: 18
-      exclude:
-        - operating-system: windows-latest
-          node-version: 12
+        include:
+          - os: macOS-latest
+            node-version: 18
+        exclude:
+          - operating-system: windows-latest
+            node-version: 12
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Checkout code
