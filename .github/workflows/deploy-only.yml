@@ -11,7 +11,9 @@ on:
         description: "Some other input for deployment"
         required: false
         type: string
-
+    secrets:
+      DEPLOYMENT_TOKEN:
+        required: true
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -24,4 +26,5 @@ jobs:
 
       - name: Deploy application
         # Using dot notation (spelling fixed to "input")
-        run: echo "Deploying application...with some other input: ${{ inputs.some-other-input }}"
+        run: |
+          echo "Deploying application...with some other input: ${{ inputs.some-other-input and secrets: ${{ secrets.DEPLOYMENT_TOKEN }} }}"
